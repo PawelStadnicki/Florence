@@ -52,13 +52,14 @@ I’ll show you how to load your own data in a moment, but you can start right a
 <img src="https://wrometrcloud.blob.core.windows.net/florence/img2.png"/>
 
 Let’s say these people are the classic four F’s: family, friends, and fools.
-They’re running some geospatial analysis — without actually using any of that technical vocabulary.
-
-We’d like to have some places to evaluate, and we already have two datasets: a few areas of Florence and some top points of interest.
+We’d like to have some places to evaluate, and we have two datasets: a few areas of Florence and some top points of interest.
 <img src="https://wrometrcloud.blob.core.windows.net/florence/img3.png"/>
 
 Now, how can we rank all city areas based on the average distance to the nearest 100 top city locations?
 <img src="https://wrometrcloud.blob.core.windows.net/florence/img4.png"/>
+
+What if instaed of the top locations we want to use distances to our family?
+//TODO
 
 ## DSL for distances
 //explanation is comming shortly
