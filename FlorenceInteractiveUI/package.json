@@ -1,0 +1,33 @@
+{
+  "repository": {
+    "url": "https://github.com/davedawkins/sutil-template-elmish.git"
+  },
+  "private": true,
+  "scripts": {
+    "start": "dotnet fable watch src/App --run webpack serve",
+    "build": "dotnet fable       src/App --run webpack --mode production"
+  },
+  "dependencies": {
+    "@deck.gl/aggregation-layers": "^9.1.0",
+    "@deck.gl/core": "^9.1.0",
+    "@deck.gl/extensions": "^9.1.0",
+    "@deck.gl/geo-layers": "^9.1.0",
+    "@deck.gl/layers": "^9.1.0",
+    "@deck.gl/mapbox": "^9.1.1",
+    "@deck.gl/mesh-layers": "^9.1.0",
+    "@geoapify/geocoder-autocomplete": "^2.1.0",
+    "@turf/boolean-point-in-polygon": "^7.2.0",
+    "@turf/combine": "^7.2.0",
+    "mapbox-gl": "^3.9.4",
+    "react-d3-speedometer": "^3.1.1",
+    "react-dom": "^19.1.0",
+    "rxjs": "^7.8.2",
+    "tippy.js": "^6.3.7",
+    "webpack": "^5.11.0",
+    "webpack-cli": "^4.2.0",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "devDependencies": {
+    "daisyui": "^5.0.0-beta.6"
+  }
+}

@@ -1,0 +1,82 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+        <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+        <TargetFramework>net9.0</TargetFramework>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <VersionSuffix>0.0.1$([System.DateTime]::UtcNow.DayOfYear.ToString("000")).$([System.DateTime]::UtcNow.ToString(HHmmss))</VersionSuffix>
+        <AssemblyVersion Condition=" '$(VersionSuffix)' == '' ">0.0.0.1</AssemblyVersion>
+        <AssemblyVersion Condition=" '$(VersionSuffix)' != '' ">$(VersionSuffix)</AssemblyVersion>
+        <Version Condition=" '$(VersionSuffix)' == '' ">0.0.1.0</Version>
+        <Version Condition=" '$(VersionSuffix)' != '' ">$(VersionSuffix)</Version>
+        <PackageVersion Condition=" '$(VersionSuffix)' == '' ">0.0.0.1</PackageVersion>
+        <PackageVersion Condition=" '$(VersionSuffix)' != '' ">$(VersionSuffix)</PackageVersion>
+        <PackageId>Florence-Core</PackageId>
+        <Authors>Paweł Stadnicki</Authors>
+        <Company>Paweł Stadnicki</Company>
+        <Product>Florence</Product>
+        <BaseOutputPath>c:/nuget</BaseOutputPath>
+        
+    </PropertyGroup>
+    <ItemGroup>
+        <Compile Include="utils\Utils.fs" />
+        <Compile Include="place\Place.fs" />
+        <Compile Include="place\domains\Coordinates.fs" />
+        <Compile Include="place\domains\Address.fs" />
+        <Compile Include="place\domains\Index.fs" />
+        <Compile Include="place\domains\AreaLocation.fs" />
+
+        <Compile Include="geojson\State.fs" />
+        <Compile Include="geojson\NetTopologySuite\Builder.fs" />
+        <Compile Include="geojson\NetTopologySuite\Extensions.fs" />
+        <Compile Include="geojson\Parser\Parser.fs" />
+        <Compile Include="distance\Distance.fs" />
+        <Compile Include="numbers\Value.fs" />
+        <Compile Include="ui\domains\palette\Palette.fs" />
+        <Compile Include="indexes\H3\H3.fs" />
+        <Compile Include="ranker\Points.fs" />
+        <Compile Include="ranker\Rank.fs" />
+        <Compile Include="ranker\Ranker.fs" />
+
+        <Compile Include="interactive\languages\Languages.fs" />
+        <Compile Include="data\Store.fs" />
+        <Compile Include="data\IO.fs" />
+        <Compile Include="interactive\languages\FSharp.fs" />
+        <Compile Include="interactive\Dependencies.fs" />
+        <Compile Include="interactive\FlorenceKernel.fs" />
+        <Compile Include="interactive\Kernel.fs" />
+    </ItemGroup>
+    <ItemGroup>
+        <EmbeddedResource Include="data\cento_luoghiPoint.geojson">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </EmbeddedResource>
+        <EmbeddedResource Include="data\sez_censimento2011Polygon.geojson">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </EmbeddedResource>
+        <EmbeddedResource Include="data\tram_fermate.geojson">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </EmbeddedResource>
+        <EmbeddedResource Include="data\famous.geojson">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </EmbeddedResource>
+
+    </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="DistanceTypeProvider13" Version="0.0.3" />
+      <PackageReference Include="FSharp.Data" Version="6.6.0" />
+      <PackageReference Include="MathNet.Numerics" Version="6.0.0-beta2" />
+      <PackageReference Include="Microsoft.DotNet.Interactive" Version="1.0.0-beta.25177.1" />
+      <PackageReference Include="Microsoft.DotNet.Interactive.FSharp" Version="1.0.0-beta.25177.1" />
+      <PackageReference Include="NetTopologySuite" Version="2.6.0" />
+      <PackageReference Include="NetTopologySuite.Features" Version="2.2.0" />
+      <PackageReference Include="NetTopologySuite.IO.GeoJSON4STJ" Version="4.0.0" />
+      <PackageReference Include="pocketken.H3" Version="4.0.0" />
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="$(OutputPath)/florence.dll" Pack="true" PackagePath="interactive-extensions/dotnet" />
+    </ItemGroup>
+
+
+</Project>

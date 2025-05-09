@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Units.fs" />
+    <Compile Include="Extensions.fs" />
+    <Compile Include="API_KEYS.fs" />
+    <Compile Include="Bindings\TurfJS.fs" />
+    <Compile Include="Bindings\Geoapify.fs" />
+    <Compile Include="Bindings\Mapbox.fs" />
+    <Compile Include="Elmish\State.fs" />
+    <Compile Include="Elmish\Msg.fs" />
+    <Compile Include="Styles.fs" />
+    <Compile Include="Thenable.fs" />
+    <Compile Include="Interactive.fs" />
+    <Compile Include="Store.fs" />
+    <Compile Include="InteractiveRenderer.fs" />
+    <Compile Include="App.fs" />
+
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Fable.Fetch" Version="2.7.0" />
+    <PackageReference Include="Feliz.DaisyUI" Version="4.2.1" />
+    <PackageReference Include="Sutil" Version="2.*" />
+
+        <PackageReference Include="Fable.Core" Version="4.3.0" />
+
+
+        <PackageReference Include="Fable.Browser.Svg" Version="2.4.0" />
+        <PackageReference Include="Fable.Geojson" Version="1.0.0" />
+  </ItemGroup>
+  <Target Name="ReallyClean" AfterTargets="Clean">
+    <!-- Remove obj folder -->
+    <RemoveDir Directories="$(BaseIntermediateOutputPath)" />
+    <!-- Remove bin folder -->
+    <RemoveDir Directories="$(BaseOutputPath)" />
+  </Target>
+</Project>
