@@ -44,26 +44,29 @@ Florence is an interactive, polyglot library currently available via the Polyglo
 To use it, you’ll also need the latest .NET SDK (version 9) installed.
 
 To get the library just type in F# cell the following:
-![img.png](img.png)
+<img src="https://wrometrcloud.blob.core.windows.net/florence/img1.png"/>
 
 Florence can work with any data — unless your city is terrible at opening and publishing it 😅.
 I’ll show you how to load your own data in a moment, but you can start right away with a few preloaded data sources included in the library for exploratory purposes.
-![img_1.png](img_1.png)
+
+<img src="https://wrometrcloud.blob.core.windows.net/florence/img2.png"/>
 
 Let’s say these people are the classic four F’s: family, friends, and fools.
 They’re running some geospatial analysis — without actually using any of that technical vocabulary.
 
-We’d like to have some places to evaluate, and we already have two datasets: a few areas of Florence and some top points of interest.![img_2.png](img_2.png)
+We’d like to have some places to evaluate, and we already have two datasets: a few areas of Florence and some top points of interest.
+<img src="https://wrometrcloud.blob.core.windows.net/florence/img3.png"/>
 
-Now, how can we rank all city areas based on the average distance to the nearest 100 top city locations?![img_5.png](img_5.png)
+Now, how can we rank all city areas based on the average distance to the nearest 100 top city locations?
+<img src="https://wrometrcloud.blob.core.windows.net/florence/img4.png"/>
 
 ## DSL for distances
 //explanation is comming shortly
-![img_3.png](img_3.png)
+<img src="https://wrometrcloud.blob.core.windows.net/florence/img5.png"/>
 
 ## Entry your own lifespace
 //explanation is comming shortly
-![img_4.png](img_4.png)
+<img src="https://wrometrcloud.blob.core.windows.net/florence/img6.png"/>
 
 ## Loading local data and files
 //TODO: a lot of docs to come shortly
