@@ -19,7 +19,7 @@ I was one of the early adopters of the **Polyglot Extension** for Visual Studio 
 
 # 📄 README in Progress
 
-Hi! 👋 This README is currently a work in progress — I'm in the process of writing it and adding more details.
+This README is currently a work in progress — I'm in the process of writing it and adding more details.
 
 🛠️ Expect updates in the coming hours or days as I document the project structure, usage, goals, and fix breaking changes of dependencies.
 
