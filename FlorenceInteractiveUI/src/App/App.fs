@@ -77,9 +77,9 @@ let view () =
 
     Html.div [
         Attr.className "app h-screen max-h-screen"
-
+    
         disposeOnUnmount [ model ]
-
+    
         Attr.style [
             Css.fontFamily "Arial, Helvetica, sans-serif"
         ]
@@ -150,9 +150,10 @@ let view () =
                 )
             ]
             //Renderer.view(App.Store.famousFlorencePeople |> JSON.parse)
+            InteractiveTester.view(obj())
           ])
       ]
-let render () =
-    view() |> Program.mount
+//let render () =
+view() |> Program.mount
  
-let renderCommand (id, data: string) = Renderer.render(id, data)
+//let renderCommand (id, data: string) = Renderer.render(id, data)

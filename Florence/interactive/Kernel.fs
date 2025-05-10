@@ -25,7 +25,6 @@ type FeltParams(context, id) =
     member val Context: KernelInvocationContext = context
     member val Id: string = id
 
-
 type FlorenceExtension() =
     let mk = """
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@5.0.0-beta.7/daisyui.css" />
