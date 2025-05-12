@@ -4,8 +4,8 @@
   },
   "private": true,
   "scripts": {
-    "start": "dotnet fable watch src/App --run webpack serve",
-    "build": "dotnet fable       src/App --run webpack --mode production"
+    "start": "dotnet fable watch src/App/App.fs --run vite",
+    "build": "dotnet fable       src/App/App.fs --run vite build"
   },
   "dependencies": {
     "@deck.gl/aggregation-layers": "^9.1.0",
@@ -28,6 +28,11 @@
     "webpack-dev-server": "^3.11.0"
   },
   "devDependencies": {
-    "daisyui": "^5.0.0-beta.6"
+    "daisyui": "^5.0.0-beta.6",
+    "rollup": "^4.39.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "serve": "^14.2.4",
+    "vite": "^6.3.5",
+    "vite-plugin-singlefile": "^2.2.0"
   }
 }

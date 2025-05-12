@@ -95,7 +95,7 @@ let view () =
                       Attr.style [
                         Css.displayFlex  
                       ]
-                      Html.a [ Attr.className "btn btn-ghost text-xl"; Attr.text "Florence Entry" ]
+                      Html.a [ Attr.className "btn btn-ghost text-xl"; Attr.text "Florence Entry f3" ]
                       Html.div [
                         Attr.id "autocomplete"
                         Attr.style [

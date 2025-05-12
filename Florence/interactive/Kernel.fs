@@ -52,10 +52,9 @@ type FlorenceExtension() =
             if context <> null then
                 context.DisplayAs("""
     <div id="sutil-app"></div>
-      <script type="module">
-    import { render, renderCommand } from 'https://wrometrcloud.blob.core.windows.net/florence/bundle.js';
-    render();
-  </script>
+
+<script type="module" src="http://localhost:3000/src/main.ts"></script>
+
     ""","text/html") |> ignore
             return Task.CompletedTask
         }
