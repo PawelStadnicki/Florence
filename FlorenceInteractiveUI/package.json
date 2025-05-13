@@ -4,8 +4,8 @@
   },
   "private": true,
   "scripts": {
-    "start": "dotnet fable watch src/App/App.fs --run vite",
-    "build": "dotnet fable       src/App/App.fs --run vite build"
+    "start": "dotnet fable watch src/App/App.fsproj --run vite",
+    "build": "dotnet fable       src/App/App.fsproj --run vite build"
   },
   "dependencies": {
     "@deck.gl/aggregation-layers": "^9.1.0",

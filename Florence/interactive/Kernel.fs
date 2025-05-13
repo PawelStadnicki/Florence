@@ -27,9 +27,11 @@ type FeltParams(context, id) =
 
 type FlorenceExtension() =
     let mk = """
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@5.0.0-beta.7/daisyui.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@5.0.0-beta.7/daisyui.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@geoapify/geocoder-autocomplete@2.1.0/styles/minimal.min.css" />
     <link rel="stylesheet" href="https://cdn.tailwindcss.com" />
+    
     <div class="card card-compact w-96 bg-base-100 shadow-xl">
              <div class="card-body  items-center text-center">
     <h2 class="card-title">Florence</h2>

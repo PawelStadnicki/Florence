@@ -1,5 +1,6 @@
 ﻿module InteractiveTester
 
+open Fable.Core
 open Fable.Core.JS
 open Sutil
 open Sutil.CoreElements
@@ -7,20 +8,30 @@ open Fable.Core.JsInterop
 open type Feliz.length
 open Polyglot.Languages
 open App
+open Fable.Core.JsInterop
+type State = { Values: List<string*string>; ToastEnabled: bool; Messages: string list }
 
-type State = { Values: List<string*string>}
 type Msg =
     | Init
     | Done
-    | FSharpValueProduced of name: string * value: string
+    | ValueProduced of kernel: string * name: string * value: string
+    | ClearLastMessage
 
 let update msg state =
     match msg with
     | Init -> state, Cmd.none
     | Done -> state, Cmd.none
-    | FSharpValueProduced (n,value) ->
-         { state with Values = (n,value) :: state.Values  }, Cmd.none
-
+    | ValueProduced (kernel, name, value) ->
+         { state
+           with
+            Values = (name,value) :: state.Values
+            Messages  = $"{kernel} produced {name}: {value}" :: state.Messages }, Cmd.none
+    | ClearLastMessage ->
+        match state.Messages.Length with
+        | 0 -> state
+        | _ ->
+            { state with Messages = state.Messages |> List.take (state.Messages.Length - 1 ) }
+        , Cmd.none
 let init (container,data) =
     let command name =
         {|
@@ -37,16 +48,19 @@ let init (container,data) =
             let! _ = webview?compositeKernel?send(fs """let y = "abra" """) |> Thenable.toPromise
             let! r = webview?compositeKernel?send(command "x") |> Thenable.toPromise
             let! r = webview?compositeKernel?send(command "y") |> Thenable.toPromise
-            debugger()
             return ()
         } 
     fun () ->
-        { Values = [] },
+        { Values = []; ToastEnabled = true; Messages = [] },
              Cmd.batch [
                  Cmd.ofEffect (fun dispatch ->
                      webview?compositeKernel?subscribeToKernelEvents( fun e ->
-                         if e?eventType = "ValueProduced" then dispatch (FSharpValueProduced (e?event?name, e?event?formattedValue?value)))
+                         debugger()
+                         if e?eventType = "ValueProduced" then dispatch (ValueProduced (e?command?command?targetKernelName, e?event?name, e?event?formattedValue?value)))
 
+                 )
+                 Cmd.ofEffect (fun dispatch ->
+                    setInterval (fun () ->(dispatch ClearLastMessage)) 5000 |> ignore
                  )
                  Cmd.OfPromise.perform p () (fun _ -> Done)
              ]
@@ -64,6 +78,21 @@ let view(data: obj) =
                  Html.li [ Attr.name n; Attr.text v ])
             |> Html.ul 
             )
+        Html.div [
+            Attr.id "messages"
+            Attr.className "flex flex-col h-full"
+            Bind.el(_model, fun m ->
+                
+                Html.table [
+                    Attr.className "mt-auto"
+                    m.Messages
+                    |> List.map (fun msg -> Html.tr [Attr.text msg])
+                    |> Html.tr
+                ]
+                
+                
+                )
+        ]
     ]
     
 let render(id: string, data: string) =
